@@ -10,6 +10,7 @@
 
     <properties>
         <mysqlConnector>5.1.37</mysqlConnector>
+        <vaadin>1.0.0</vaadin>
     </properties>
 
     <parent>
@@ -37,6 +38,11 @@
             <version>${mysqlConnector}</version>
         </dependency>
 
+        <dependency>
+            <groupId>com.vaadin</groupId>
+            <artifactId>vaadin-spring</artifactId>
+            <version>${vaadin}</version>
+        </dependency>
 
     </dependencies>
 
