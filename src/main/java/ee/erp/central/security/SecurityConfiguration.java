@@ -40,7 +40,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
 
         if (!userDetailsManager.userExists("user")) {
             List<GrantedAuthority> authorityList = new ArrayList<GrantedAuthority>();
-            authorityList.add(new SimpleGrantedAuthority("user"));
+            authorityList.add(new SimpleGrantedAuthority("ROLE_USER"));
 
             User user = new User("user", passwordEncoder.encode("pass"), authorityList);
             userDetailsManager.createUser(user);
