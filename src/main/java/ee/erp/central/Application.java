@@ -1,7 +1,6 @@
 package ee.erp.central;
 
 
-import ee.erp.central.security.SecurityConfiguration;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
