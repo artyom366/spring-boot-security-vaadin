@@ -15,6 +15,6 @@ public class AccessDeniedPage extends UI {
 
     @Override
     protected void init(VaadinRequest vaadinRequest) {
-        //setContent(new Label("access denied"));
+        setContent(new Label("access denied"));
     }
 }
