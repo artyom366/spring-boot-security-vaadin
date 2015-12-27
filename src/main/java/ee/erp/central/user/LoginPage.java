@@ -35,14 +35,6 @@ public class LoginPage extends UI {
     @Override
     protected void init(VaadinRequest request) {
 
-        messageSource.getMessage("login.btn", null, request.getLocale());
-
-        UsernamePasswordAuthenticationToken authenticationToken =
-                new UsernamePasswordAuthenticationToken("user", "password");
-
-        SecurityContextHolder.getContext()
-                .setAuthentication(manager.authenticate(authenticationToken));
-
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setMargin(true);
         setContent(mainLayout);
@@ -113,8 +105,11 @@ public class LoginPage extends UI {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
 
-//                Label label = new Label(userName.getValue(), ContentMode.TEXT);
-//                mainLayout.addComponent(label);
+                UsernamePasswordAuthenticationToken authenticationToken =
+                        new UsernamePasswordAuthenticationToken("user", "pass");
+
+                SecurityContextHolder.getContext()
+                        .setAuthentication(manager.authenticate(authenticationToken));
 
                 Notification.show("Button Pressed: " + request.getLocale());
             }
