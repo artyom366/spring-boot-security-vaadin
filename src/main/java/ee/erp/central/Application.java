@@ -53,7 +53,8 @@ public class Application extends WebMvcConfigurerAdapter {
     public ReloadableResourceBundleMessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:locale/messages");
-        //messageSource.setCacheSeconds(3600); //refresh cache once per hour
+        messageSource.setCacheSeconds(3600); //refresh cache once per hour
+        messageSource.setDefaultEncoding("UTF-8");
         return messageSource;
     }
 
