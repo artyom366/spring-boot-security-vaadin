@@ -1,5 +1,6 @@
 package ee.erp.central.user;
 
+import com.vaadin.annotations.Theme;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.ui.Label;
@@ -13,6 +14,7 @@ import org.vaadin.spring.annotation.VaadinUI;
  */
 
 @VaadinUI(path = "/admin")
+@Theme("valo")
 public class AdminPage extends UI {
 
     @Override

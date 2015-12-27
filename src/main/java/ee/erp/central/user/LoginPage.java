@@ -5,6 +5,7 @@ import com.vaadin.data.Property;
 import com.vaadin.data.util.ObjectProperty;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
+import com.vaadin.server.VaadinSession;
 import com.vaadin.ui.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.i18n.LocaleContextHolder;
@@ -57,18 +58,38 @@ public class LoginPage extends UI {
         eng.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                System.out.println(LocaleContextHolder.getLocale());
+//                LocaleContextHolder.setLocale(new Locale("en"));
+//                getPage().reload();
+
+                VaadinSession.getCurrent().setLocale(new Locale("en"));
+                System.out.println(VaadinSession.getCurrent().getLocale());
+                getPage().reload();
             }
         });
 
         lv.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-                System.out.println(LocaleContextHolder.getLocale());
+//                LocaleContextHolder.setLocale(new Locale("lv"));
+//                getPage().reload();
+
+                VaadinSession.getCurrent().setLocale(new Locale("lv"));
+                System.out.println(VaadinSession.getCurrent().getLocale());
+                getPage().reload();
             }
         });
 
+        ru.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+//                LocaleContextHolder.setLocale(new Locale("ru"));
+//                getPage().reload();
 
+                VaadinSession.getCurrent().setLocale(new Locale("ru"));
+                System.out.println(VaadinSession.getCurrent().getLocale());
+                getPage().reload();
+            }
+        });
 
         mainLayout.addComponent(new Label("Welcome to Login Page"));
         mainLayout.addComponent(new Link("Login zone", new ExternalResource("http://localhost:8080/log1n/")));
@@ -81,7 +102,7 @@ public class LoginPage extends UI {
 
         TextField userName = new TextField("Username");
         PasswordField password = new PasswordField("Password");
-        Button signIn = new Button(messageSource.getMessage("login.btn", null, request.getLocale()) + " " + LocaleContextHolder.getLocale());
+        Button signIn = new Button(messageSource.getMessage("login.btn", null, VaadinSession.getCurrent().getLocale()));
         signIn.setDescription("this is a login button");
 
         loginLayout.addComponent(userName);

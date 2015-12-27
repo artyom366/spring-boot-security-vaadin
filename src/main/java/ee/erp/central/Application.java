@@ -53,8 +53,27 @@ public class Application extends WebMvcConfigurerAdapter {
     public ReloadableResourceBundleMessageSource messageSource() {
         ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
         messageSource.setBasename("classpath:locale/messages");
-        messageSource.setCacheSeconds(3600); //refresh cache once per hour
+        //messageSource.setCacheSeconds(3600); //refresh cache once per hour
         return messageSource;
     }
+
+//    @Bean
+//    public LocaleResolver localeResolver() {
+//        SessionLocaleResolver slr = new SessionLocaleResolver();
+//        slr.setDefaultLocale(Locale.US);
+//        return slr;
+//    }
+//
+//    @Bean
+//    public LocaleChangeInterceptor localeChangeInterceptor() {
+//        LocaleChangeInterceptor lci = new LocaleChangeInterceptor();
+//        lci.setParamName("lang");
+//        return lci;
+//    }
+//
+//    @Override
+//    public void addInterceptors(InterceptorRegistry registry) {
+//        registry.addInterceptor(localeChangeInterceptor());
+//    }
 
 }
