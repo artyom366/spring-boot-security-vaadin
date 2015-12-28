@@ -3,6 +3,7 @@ package ee.erp.central.user;
 import com.vaadin.annotations.Theme;
 import com.vaadin.data.Property;
 import com.vaadin.data.util.ObjectProperty;
+import com.vaadin.event.FieldEvents;
 import com.vaadin.server.ExternalResource;
 import com.vaadin.server.VaadinRequest;
 import com.vaadin.server.VaadinSession;
@@ -145,9 +146,19 @@ public class LoginPage extends UI {
         mainLayout.addComponent(input);
         mainLayout.addComponent(output);
 
+
         ObjectProperty<String> objectProperty = new ObjectProperty<String>("the value");
         input.setPropertyDataSource(objectProperty);
+        input.setImmediate(true);
         output.setPropertyDataSource(objectProperty);
+
+        input.addTextChangeListener(new FieldEvents.TextChangeListener() {
+            @Override
+            public void textChange(FieldEvents.TextChangeEvent textChangeEvent) {
+
+                objectProperty.setValue(input.getValue());
+            }
+        });
 
     }
 }
