@@ -37,21 +37,32 @@ public class LoginPage extends UI {
 
         VerticalLayout mainLayout = new VerticalLayout();
         mainLayout.setMargin(true);
+        mainLayout.setSpacing(true);
         setContent(mainLayout);
+
+        Button logout = new Button("Logout");
 
         Button eng = new Button("Eng");
         Button lv = new Button("Lv");
         Button ru = new Button("Ru");
 
+        mainLayout.addComponent(logout);
         mainLayout.addComponent(eng);
         mainLayout.addComponent(lv);
         mainLayout.addComponent(ru);
 
+        logout.addClickListener(new Button.ClickListener() {
+            @Override
+            public void buttonClick(Button.ClickEvent clickEvent) {
+
+                SecurityContextHolder.getContext().setAuthentication(null);
+
+            }
+        });
+
         eng.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-//                LocaleContextHolder.setLocale(new Locale("en"));
-//                getPage().reload();
 
                 VaadinSession.getCurrent().setLocale(new Locale("en"));
                 System.out.println(VaadinSession.getCurrent().getLocale());
@@ -62,8 +73,6 @@ public class LoginPage extends UI {
         lv.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-//                LocaleContextHolder.setLocale(new Locale("lv"));
-//                getPage().reload();
 
                 VaadinSession.getCurrent().setLocale(new Locale("lv"));
                 System.out.println(VaadinSession.getCurrent().getLocale());
@@ -74,8 +83,6 @@ public class LoginPage extends UI {
         ru.addClickListener(new Button.ClickListener() {
             @Override
             public void buttonClick(Button.ClickEvent clickEvent) {
-//                LocaleContextHolder.setLocale(new Locale("ru"));
-//                getPage().reload();
 
                 VaadinSession.getCurrent().setLocale(new Locale("ru"));
                 System.out.println(VaadinSession.getCurrent().getLocale());

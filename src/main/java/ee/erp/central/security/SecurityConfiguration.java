@@ -73,7 +73,9 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .csrf().disable()
                 .exceptionHandling()
-                .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/log1n"));
+                .authenticationEntryPoint(new LoginUrlAuthenticationEntryPoint("/log1n"))
+                .and()
+                .logout().logoutSuccessUrl("/log1n");
     }
 
 //    @Override
