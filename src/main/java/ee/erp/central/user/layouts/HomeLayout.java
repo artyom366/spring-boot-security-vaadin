@@ -4,10 +4,8 @@ import com.vaadin.navigator.View;
 import com.vaadin.navigator.ViewChangeListener;
 import com.vaadin.server.VaadinSession;
 import com.vaadin.spring.annotation.SpringComponent;
-import com.vaadin.spring.annotation.SpringView;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.*;
-import ee.erp.central.user.LoginPage;
 import org.apache.tomcat.jdbc.pool.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
@@ -15,7 +13,6 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
 
-import javax.swing.text.ViewFactory;
 
 /**
  * Created by Artyom on 12/30/2015.
@@ -41,6 +38,10 @@ public class HomeLayout extends VerticalLayout implements View {
 
 
     public HomeLayout init() {
+
+        setSizeFull();
+        lowerSection.setSizeFull();
+        menuLayout.setSizeFull();
 
         upperSection.addComponent(new Label("Header"));
         menuLayout.addComponent(new Label("Menu"));
@@ -73,6 +74,11 @@ public class HomeLayout extends VerticalLayout implements View {
         contentLayout.addComponent(signIn);
         contentLayout.setMargin(true);
         contentLayout.setSpacing(true);
+
+        setExpandRatio(upperSection, 0.2f);
+        setExpandRatio(lowerSection, 1f);
+        lowerSection.setExpandRatio(menuLayout, 0.7f);
+        lowerSection.setExpandRatio(contentLayout, 1f);
 
         return this;
     }

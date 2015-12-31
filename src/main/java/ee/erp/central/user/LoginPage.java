@@ -43,6 +43,7 @@ public class LoginPage extends UI {
 
         setContent(layout.init());
 
+
 //        VerticalLayout mainLayout = new VerticalLayout();
 //        mainLayout.setMargin(true);
 //        mainLayout.setSpacing(true);
