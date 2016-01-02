@@ -8,6 +8,7 @@ import com.vaadin.ui.Label;
 import com.vaadin.ui.Link;
 import com.vaadin.ui.UI;
 import com.vaadin.ui.VerticalLayout;
+import ee.erp.central.user.layouts.UserLayout;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.ReloadableResourceBundleMessageSource;
 import org.vaadin.spring.annotation.VaadinUI;
@@ -23,15 +24,20 @@ public class UserPage extends UI {
     @Autowired
     ReloadableResourceBundleMessageSource messageSource;
 
+    @Autowired
+    UserLayout layout;
+
     @Override
     protected void init(VaadinRequest vaadinRequest) {
 
-        VerticalLayout layout = new VerticalLayout();
+        setContent(layout.init());
 
-        layout.addComponent(new Label(messageSource.getMessage("user.welcome", null, VaadinSession.getCurrent().getLocale())));
-        layout.addComponent(new Link("Login zone",new ExternalResource("http://localhost:8080/log1n/")));
-        layout.addComponent(new Link("User zone",new ExternalResource("http://localhost:8080/user/")));
-        layout.addComponent(new Link("Admin zone",new ExternalResource("http://localhost:8080/admin/")));
-        setContent(layout);
+//        VerticalLayout layout = new VerticalLayout();
+
+//        layout.addComponent(new Label(messageSource.getMessage("user.welcome", null, VaadinSession.getCurrent().getLocale())));
+//        layout.addComponent(new Link("Login zone",new ExternalResource("http://localhost:8080/log1n/")));
+//        layout.addComponent(new Link("User zone",new ExternalResource("http://localhost:8080/user/")));
+//        layout.addComponent(new Link("Admin zone",new ExternalResource("http://localhost:8080/admin/")));
+//        setContent(layout);
     }
 }
