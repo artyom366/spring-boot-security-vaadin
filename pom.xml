@@ -10,7 +10,7 @@
 
     <properties>
         <mysqlConnector>5.1.37</mysqlConnector>
-        <vaadin>1.0.0</vaadin>
+        <vaadin>7.6.0</vaadin>
         <java.version>1.8</java.version>
         <tomcat.version>9.0.0.M1</tomcat.version>
     </properties>
@@ -26,7 +26,7 @@
             <dependency>
                 <groupId>com.vaadin</groupId>
                 <artifactId>vaadin-bom</artifactId>
-                <version>7.6.0.alpha2</version>
+                <version>${vaadin}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -130,22 +130,22 @@
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-themes</artifactId>
-            <version>7.6.0.alpha2</version>
+            <version>${vaadin}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-client</artifactId>
-            <version>7.6.0.alpha2</version>
+            <version>${vaadin}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-client-compiled</artifactId>
-            <version>7.6.0.alpha2</version>
+            <version>${vaadin}</version>
         </dependency>
         <dependency>
             <groupId>com.vaadin</groupId>
             <artifactId>vaadin-server</artifactId>
-            <version>7.6.0.alpha2</version>
+            <version>${vaadin}</version>
         </dependency>
 
 

@@ -3,11 +3,14 @@ package ee.erp.central.user.layouts;
 import com.vaadin.data.Item;
 import com.vaadin.data.Property;
 import com.vaadin.event.ItemClickEvent;
+import com.vaadin.shared.ui.table.CollapseMenuContent;
 import com.vaadin.spring.annotation.SpringComponent;
 import com.vaadin.spring.annotation.UIScope;
 import com.vaadin.ui.Notification;
 import com.vaadin.ui.Table;
 import com.vaadin.ui.VerticalLayout;
+
+import java.util.Objects;
 
 /**
  * Created by Artyom on 1/2/2016.
@@ -29,7 +32,7 @@ public class UserLayout extends VerticalLayout {
         table.addContainerProperty("c3", String.class, "3");
         table.addContainerProperty("c4", String.class, "4");
 
-        table.setColumnHeaders("Number", "Name", "Surname", "Descriptions");
+        table.setColumnHeaders("Number", "Name", "Surname", "Descriptions   ");
 
         for (int i = 0; i < 10; i++) {
             table.addItem(new Object[]{i, "name " + i, "surname " + i, "test " + i}, i);
@@ -51,6 +54,29 @@ public class UserLayout extends VerticalLayout {
             }
         });
 
+        table.setColumnCollapsingAllowed(true);
+        table.setColumnReorderingAllowed(true);
+
+        table.addColumnReorderListener(new Table.ColumnReorderListener() {
+            @Override
+            public void columnReorder(Table.ColumnReorderEvent columnReorderEvent) {
+
+                System.out.println(columnReorderEvent.getConnector());
+                for (Object o  : table.getVisibleColumns()) {
+                    System.out.println(o.toString());
+                }
+
+            }
+        });
+
+        table.addColumnCollapseListener(new Table.ColumnCollapseListener() {
+            @Override
+            public void columnCollapseStateChange(Table.ColumnCollapseEvent columnCollapseEvent) {
+
+                System.out.println(columnCollapseEvent.getPropertyId());
+
+            }
+        });
 
         addComponent(table);
 
